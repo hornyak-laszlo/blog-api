@@ -15,6 +15,7 @@
     "aws-sdk": "^2.268.1",
     "bcryptjs": "^2.4.3",
     "bcryptjs-then": "^1.0.1",
-    "jsonwebtoken": "^8.3.0"
+    "jsonwebtoken": "^8.3.0",
+    "nodemailer": "^4.6.7"
   }
 }

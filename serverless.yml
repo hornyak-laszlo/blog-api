@@ -11,7 +11,11 @@ provider:
   region: eu-central-1
   environment:
     JWT_SECRET: reallystrongsecret
-
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+       - ses:SendEmail
+      Resource: "*"
 # you can add statements to the Lambda function's IAM Role here
 #  iamRoleStatements:
 #    - Effect: "Allow"
@@ -42,6 +46,14 @@ provider:
 #    - exclude-me-dir/**
 
 functions:
+  send-message:
+    handler: auth/MessageHandler.sendMessage
+    events:
+      - http:
+          path: send-message
+          method: post
+          cors: true
+
   verify-token:
     handler: auth/VerifyToken.auth
 
