@@ -46,6 +46,22 @@ provider:
 #    - exclude-me-dir/**
 
 functions:
+  courses:
+    handler: auth/CoursesHandler.getCourses
+    events:
+      - http:
+          path: courses
+          method: get
+          cors: true
+
+  articles:
+    handler: auth/ArticlesHandler.getArticles
+    events:
+      - http:
+          path: articles
+          method: get
+          cors: true
+
   send-message:
     handler: auth/MessageHandler.sendMessage
     events:
