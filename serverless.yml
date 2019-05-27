@@ -39,34 +39,6 @@ functions:
           method: post
           cors: true
 
-  verify-token:
-    handler: handlers/authHandler.verifyToken
-
-  login:
-    handler: handlers/AuthHandler.login
-    events:
-      - http:
-          path: login
-          method: post
-          cors: true
-
-  register:
-    handler: handlers/AuthHandler.register
-    events:
-      - http:
-          path: register
-          method: post
-          cors: true
-
-  me:
-    handler: handlers/AuthHandler.me
-    events:
-      - http:
-          path: me
-          method: get
-          cors: true
-          authorizer: verify-token
-
 # CloudFormation resource template
 resources:
   Resources:
