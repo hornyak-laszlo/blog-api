@@ -1,15 +1,11 @@
 'use strict'
+const courses = require('../data/courses')
 
 const getCourses = async () => {
   try {
     const response = {
       statusCode: 200,
-      body: JSON.stringify([
-        {
-          id: 1,
-          title: 'course 1'
-        }
-      ])
+      body: JSON.stringify(courses)
     }
     return response
   } catch (err) {

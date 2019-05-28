@@ -1,15 +1,11 @@
 'use strict'
+const articles = require('../data/articles')
 
 const getArticles = async () => {
   try {
     const response = {
       statusCode: 200,
-      body: JSON.stringify([
-        {
-          id: 1,
-          title: 'article 1'
-        }
-      ])
+      body: JSON.stringify(articles)
     }
     return response
   } catch (err) {
