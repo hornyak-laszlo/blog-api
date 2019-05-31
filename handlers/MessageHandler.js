@@ -1,6 +1,10 @@
 const aws = require('aws-sdk')
 const nodemailer = require('nodemailer')
-const config = require('../config.json')
+const config = {
+  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+  region: process.env.REGION
+}
 
 aws.config.update(config)
 const SES = new aws.SES()
@@ -24,11 +28,19 @@ const sendMessage = async (event) => {
     await transporter.sendMail(mailOptions)
     return {
       statusCode: 200,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Credentials': true
+      },
       body: JSON.stringify({ message: 'Email sent successfully' })
     }
   } catch (err) {
     return {
       statusCode: 400,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Credentials': true
+      },
       body: JSON.stringify({ message: 'Email sending failed' })
     }
   }
