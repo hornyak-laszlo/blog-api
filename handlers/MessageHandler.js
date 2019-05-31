@@ -3,7 +3,7 @@ const nodemailer = require('nodemailer')
 const config = {
   accessKeyId: process.env.AWS_KEY_ID,
   secretAccessKey: process.env.AWS_SECRET,
-  region: process.env.REGION
+  region: process.env.AWS_REGION
 }
 
 aws.config.update(config)
