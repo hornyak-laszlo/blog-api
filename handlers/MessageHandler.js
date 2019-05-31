@@ -41,7 +41,7 @@ const sendMessage = async (event) => {
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Credentials': true
       },
-      body: JSON.stringify({ message: 'Email sending failed' })
+      body: JSON.stringify({ message: 'Email sending failed', data: config })
     }
   }
 }
