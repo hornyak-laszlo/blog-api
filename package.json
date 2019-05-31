@@ -9,7 +9,8 @@
   "author": "Laszlo Hornyak",
   "license": "ISC",
   "devDependencies": {
-    "serverless-offline": "4.10.6"
+    "serverless-offline": "4.10.6",
+    "serverless-secrets-plugin": "0.1.0"
   },
   "dependencies": {
     "aws-sdk": "2.463.0",

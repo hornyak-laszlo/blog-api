@@ -1,17 +1,21 @@
 service: blog-api
 
+plugins:
+  - serverless-secrets-plugin
+
 provider:
   name: aws
   runtime: nodejs8.10
   stage: dev
   region: eu-central-1
-  environment:
-    JWT_SECRET: reallystrongsecret
   iamRoleStatements:
     - Effect: "Allow"
       Action:
        - ses:SendEmail
       Resource: "*"
+
+custom:
+  secrets: ${file(secrets.${opt:stage, self:provider.stage}.yml)}
 
 # Lambda functions
 functions:
@@ -38,6 +42,10 @@ functions:
           path: send-message
           method: post
           cors: true
+    environment:
+      AWS_ACCESS_KEY_ID: ${self:custom.secrets.AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${self:custom.secrets.AWS_SECRET_ACCESS_KEY}
+      REGION: ${self:custom.secrets.REGION}
 
 # CloudFormation resource template
 resources:
