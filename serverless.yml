@@ -43,8 +43,8 @@ functions:
           method: post
           cors: true
     environment:
-      AWS_ACCESS_KEY_ID: ${self:custom.secrets.AWS_ACCESS_KEY_ID}
-      AWS_SECRET_ACCESS_KEY: ${self:custom.secrets.AWS_SECRET_ACCESS_KEY}
+      AWS_KEY_ID: ${self:custom.secrets.AWS_ACCESS_KEY_ID}
+      AWS_SECRET: ${self:custom.secrets.AWS_SECRET_ACCESS_KEY}
       REGION: ${self:custom.secrets.REGION}
 
 # CloudFormation resource template
