@@ -4,13 +4,7 @@ const fs = require('fs')
 const YAML = require('yaml')
 const file = fs.readFileSync('../secrets.dev.yml', 'utf8')
 
-const env = YAML.parse(file)
-const config = {
-  accessKeyId: env.AWS_KEY_ID,
-  secretAccessKey: env.AWS_SECRET,
-  region: env.AWS_REGION
-}
-
+const config = YAML.parse(file)
 aws.config.update(config)
 const SES = new aws.SES()
 

@@ -42,10 +42,6 @@ functions:
           path: send-message
           method: post
           cors: true
-    environment:
-      AWS_KEY_ID: ${self:custom.secrets.AWS_KEY_ID}
-      AWS_SECRET: ${self:custom.secrets.AWS_SECRET}
-      AWS_REGION: ${self:custom.secrets.AWS_REGION}
 
 # CloudFormation resource template
 resources:
