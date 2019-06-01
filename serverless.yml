@@ -1,8 +1,5 @@
 service: blog-api
 
-plugins:
-  - serverless-secrets-plugin
-
 provider:
   name: aws
   runtime: nodejs8.10
@@ -13,9 +10,6 @@ provider:
       Action:
        - ses:SendEmail
       Resource: "*"
-
-custom:
-  secrets: ${file(secrets.${opt:stage, self:provider.stage}.yml)}
 
 # Lambda functions
 functions:

@@ -1,10 +1,6 @@
 const aws = require('aws-sdk')
 const nodemailer = require('nodemailer')
-const fs = require('fs')
-const YAML = require('yaml')
-const file = fs.readFileSync('../secrets.dev.yml', 'utf8')
-
-const config = YAML.parse(file)
+const config = require('../config.json')
 aws.config.update(config)
 const SES = new aws.SES()
 
