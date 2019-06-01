@@ -1,9 +1,14 @@
 const aws = require('aws-sdk')
 const nodemailer = require('nodemailer')
+const fs = require('fs')
+const YAML = require('yaml')
+const file = fs.readFileSync('../secrets.dev.yml', 'utf8')
+
+const env = YAML.parse(file)
 const config = {
-  accessKeyId: process.env.AWS_KEY_ID,
-  secretAccessKey: process.env.AWS_SECRET,
-  region: process.env.AWS_REGION
+  accessKeyId: env.AWS_KEY_ID,
+  secretAccessKey: env.AWS_SECRET,
+  region: env.AWS_REGION
 }
 
 aws.config.update(config)
