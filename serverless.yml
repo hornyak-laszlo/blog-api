@@ -44,16 +44,3 @@ resources:
       Type: AWS::S3::Bucket
       Properties:
         BucketName: ${self:service}-${self:provider.stage}-upload
-    userTable:
-      Type: AWS::DynamoDB::Table
-      Properties:
-        TableName: ${self:service}-${self:provider.stage}-users
-        AttributeDefinitions:
-          - AttributeName: userId
-            AttributeType: S
-        KeySchema:
-          - AttributeName: userId
-            KeyType: HASH
-        ProvisionedThroughput:
-          ReadCapacityUnits: 1
-          WriteCapacityUnits: 1
