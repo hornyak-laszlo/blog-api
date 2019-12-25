@@ -1,8 +1,10 @@
+org: hornyaklaszlo88
+app: myapp
 service: blog-api
 
 provider:
   name: aws
-  runtime: nodejs8.10
+  runtime: nodejs12.x
   stage: dev
   region: eu-central-1
   iamRoleStatements:
