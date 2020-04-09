@@ -9,10 +9,10 @@
   "author": "Laszlo Hornyak",
   "license": "ISC",
   "devDependencies": {
-    "serverless-offline": "5.7.2"
+    "serverless-offline": "6.1.4"
   },
   "dependencies": {
-    "aws-sdk": "2.490.0",
-    "nodemailer": "6.2.1"
+    "aws-sdk": "2.656.0",
+    "nodemailer": "6.4.6"
   }
 }
