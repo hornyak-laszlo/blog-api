@@ -21,6 +21,7 @@ const sendMessage = async (event) => {
 
     // send email
     await transporter.sendMail(mailOptions)
+
     return {
       statusCode: 200,
       headers: {
